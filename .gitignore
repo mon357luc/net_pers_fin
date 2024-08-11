@@ -1,0 +1,31 @@
+# Build results
+bin/
+obj/
+
+# NuGet packages
+*.nupkg
+# Note: Leave packages/ directory in case you use NuGet Package Restore
+
+# Rider project files
+.idea/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.suo
+*.pdb
+*.opendb
+*.dbmdl
+*.bak
+*.swp
+
+# Logs
+*.log
+
+# IDE directories
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
