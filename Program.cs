@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using net_pers_fin.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<net_pers_fin_context>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("net_pers_fin_context") ?? throw new InvalidOperationException("Connection string 'net_pers_fin_context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

@@ -13,7 +13,11 @@ public class HomeController : Controller
 
     public IActionResult Index() => View();
 
-    public IActionResult Welcome(string username = "Guest") => View();
+    public IActionResult Welcome(string username = "Guest")
+    {
+        ViewData["Message"] = "Welcome " + username;
+        return View();
+    }
 
     public IActionResult Privacy() => View();
 
