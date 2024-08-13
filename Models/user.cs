@@ -5,6 +5,9 @@ namespace net_pers_fin.Models;
 public class User
 {
     public int Id { get ; set; }
+    public required string Username { get; set; }
+    public required string Password { get; set; }
+
     public required string First { get ; set; }
     public required string Last { get ; set; }
     public int Active { get ; set; } = 0;
