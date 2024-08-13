@@ -22,25 +22,25 @@ namespace net_pers_fin.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
-            return View(await _context.user.ToListAsync());
+            return View(await _context.User.ToListAsync());
         }
 
         // GET: Users/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? Id)
         {
-            if (id == null)
+            if (Id == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.user
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (user == null)
+            var User = await _context.User
+                .FirstOrDefaultAsync(m => m.Id == Id);
+            if (User == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(User);
         }
 
         // GET: Users/Create
@@ -54,31 +54,31 @@ namespace net_pers_fin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,first,last,active,verified,createdon,lastlogin")] user user)
+        public async Task<IActionResult> Create([Bind("Id,First,Last,Active,Verified,Createdon,Lastlogin")] User User)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(User);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(User);
         }
 
         // GET: Users/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? Id)
         {
-            if (id == null)
+            if (Id == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.user.FindAsync(id);
-            if (user == null)
+            var User = await _context.User.FindAsync(Id);
+            if (User == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(User);
         }
 
         // POST: Users/Edit/5
@@ -86,9 +86,9 @@ namespace net_pers_fin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,first,last,active,verified,createdon,lastlogin")] user user)
+        public async Task<IActionResult> Edit(int Id, [Bind("Id,First,Last,Active,Verified,Createdon,Lastlogin")] User User)
         {
-            if (id != user.id)
+            if (Id != User.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace net_pers_fin.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(User);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!userExists(user.id))
+                    if (!UserExists(User.Id))
                     {
                         return NotFound();
                     }
@@ -113,45 +113,45 @@ namespace net_pers_fin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(User);
         }
 
         // GET: Users/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? Id)
         {
-            if (id == null)
+            if (Id == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.user
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (user == null)
+            var User = await _context.User
+                .FirstOrDefaultAsync(m => m.Id == Id);
+            if (User == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(User);
         }
 
         // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int Id)
         {
-            var user = await _context.user.FindAsync(id);
-            if (user != null)
+            var User = await _context.User.FindAsync(Id);
+            if (User != null)
             {
-                _context.user.Remove(user);
+                _context.User.Remove(User);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool userExists(int id)
+        private bool UserExists(int Id)
         {
-            return _context.user.Any(e => e.id == id);
+            return _context.User.Any(e => e.Id == Id);
         }
     }
 }

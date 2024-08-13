@@ -1,4 +1,4 @@
-@model IEnumerable<net_pers_fin.Models.user>
+@model IEnumerable<net_pers_fin.Models.User>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,22 +13,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.first)
+                @Html.DisplayNameFor(model => model.First)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.last)
+                @Html.DisplayNameFor(model => model.Last)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.active)
+                @Html.DisplayNameFor(model => model.Active)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.verified)
+                @Html.DisplayNameFor(model => model.Verified)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.createdon)
+                @Html.DisplayNameFor(model => model.Createdon)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.lastlogin)
+                @Html.DisplayNameFor(model => model.Lastlogin)
             </th>
             <th></th>
         </tr>
@@ -37,27 +37,27 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.first)
+                @Html.DisplayFor(modelItem => item.First)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.last)
+                @Html.DisplayFor(modelItem => item.Last)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.active)
+                @Html.DisplayFor(modelItem => item.Active)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.verified)
+                @Html.DisplayFor(modelItem => item.Verified)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.createdon)
+                @Html.DisplayFor(modelItem => item.Createdon)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.lastlogin)
+                @Html.DisplayFor(modelItem => item.Lastlogin)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                <a asp-action="Edit" asp-route-Id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-Id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-Id="@item.Id">Delete</a>
             </td>
         </tr>
 }

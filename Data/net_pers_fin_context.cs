@@ -14,12 +14,12 @@ namespace net_pers_fin.Data
         {
         }
 
-        public DbSet<net_pers_fin.Models.user> user { get; set; } = default!;
+        public DbSet<net_pers_fin.Models.User> User { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
-            modelbuilder.Entity<net_pers_fin.Models.user>()
-                .Property(u => u.createdon)
+            modelbuilder.Entity<net_pers_fin.Models.User>()
+                .Property(u => u.Createdon)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP");
         }
     }
